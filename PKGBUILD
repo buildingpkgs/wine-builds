@@ -5,6 +5,7 @@ pkgdesc="WINE with staging patches applied"
 arch=('x86_64')
 url="https://www.winehq.org/"
 license=('LGPL')
+options=(staticlibs !lto)
 depends=('freetype2' 'glibc' 'libx11' 'gcc-libs' 'libpng' 'libxml2' 'fontconfig' 'ncurses' 'libxcursor' 'libxrandr' 'libxrender' 'libxi' 'mingw-w64-gcc' 'wayland' 'libxkbcommon')
 makedepends=('git')
 source=("git+https://github.com/wine-mirror/wine.git"
@@ -12,20 +13,13 @@ source=("git+https://github.com/wine-mirror/wine.git"
 sha256sums=('SKIP' 'SKIP')
 
 build() {
-  # Doesn't compile without remove these flags as of 4.10
-  # incompatible-pointer-types: https://bugs.gentoo.org/919758
- # export CFLAGS="$CFLAGS -ffat-lto-objects -Wno-error=incompatible-pointer-types"
-
- # export CROSSCFLAGS="-O2 -pipe"
- # export CROSSCXXFLAGS="-O2 -pipe"
- # export CROSSLDFLAGS="-Wl,-O1"
 
   cd "$srcdir/wine"
 
   msg2 "Applying staging patches..."
   cd "$srcdir/wine-staging"
 
-  #./staging/patchinstall.py --all DESTDIR="$srcdir/wine"
+  ./staging/patchinstall.py --all DESTDIR="$srcdir/wine"
 
   cd "$srcdir/wine"
 
