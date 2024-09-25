@@ -5,7 +5,6 @@ pkgdesc="WINE with staging patches applied"
 arch=('x86_64')
 url="https://www.winehq.org/"
 license=('LGPL')
-options=(!lto)
 depends=('freetype2' 'glibc' 'libx11' 'gcc-libs' 'libpng' 'libxml2' 'fontconfig' 'ncurses' 'libxcursor' 'libxrandr' 'libxrender' 'libxi' 'mingw-w64-gcc' 'wayland' 'libxkbcommon')
 makedepends=('git')
 source=("git+https://github.com/wine-mirror/wine.git"
