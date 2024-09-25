@@ -6,8 +6,8 @@ arch=('x86_64')
 url="https://www.winehq.org/"
 license=('LGPL')
 options=(staticlibs !lto !debug)
-depends=('freetype2' 'glibc' 'libx11' 'gcc-libs' 'libpng' 'libxml2' 'fontconfig' 'ncurses' 'libxcursor' 'libxrandr' 'libxrender' 'libxi' 'wayland' 'libxkbcommon')
-makedepends=('git' 'mingw-w64-gcc' 'python')
+depends=('wayland' 'libxkbcommon' 'mesa' 'ffmpeg' 'sdl2')
+makedepends=('git' 'mingw-w64-gcc' 'python' 'cups' 'sane' 'pipewire-pulse' 'v4l-utils')
 source=("git+https://github.com/wine-mirror/wine.git"
         "git+https://github.com/wine-staging/wine-staging.git")
 sha256sums=('SKIP' 'SKIP')
@@ -30,5 +30,5 @@ build() {
 package() {
   cd "$srcdir/wine"
 
-  make prefix="$pkgdir/usr" libdir="$pkgdir/usr/lib" dlldir="$pkgdir/usr/lib/wine" DESTDIR="$pkgdir" install
+  make prefix="$pkgdir/usr" libdir="$pkgdir/usr/lib" dlldir="$pkgdir/usr/lib/wine" install
 }
