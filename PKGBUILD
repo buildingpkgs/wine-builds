@@ -6,8 +6,8 @@ arch=('x86_64')
 url="https://www.winehq.org/"
 license=('LGPL')
 options=(staticlibs !lto !debug)
-depends=('wayland' 'libxkbcommon' 'mesa' 'ffmpeg' 'sdl2')
-makedepends=('git' 'mingw-w64-gcc' 'python' 'cups' 'sane' 'pipewire-pulse' 'v4l-utils')
+depends=('wayland' 'libxkbcommon' 'mesa' 'ffmpeg' 'sdl2' 'libxi' 'libxrandr')
+makedepends=('git' 'mingw-w64-gcc' 'python' 'cups' 'sane' 'pipewire-pulse' 'v4l-utils' 'libxcomposite' 'libxinerama')
 source=("git+https://github.com/wine-mirror/wine.git"
         "git+https://github.com/wine-staging/wine-staging.git")
 sha256sums=('SKIP' 'SKIP')
