@@ -5,6 +5,11 @@ pkgdesc="WINE with staging patches applied"
 arch=('x86_64')
 url="https://www.winehq.org/"
 license=('LGPL')
+provides=(
+    "wine"
+    "wine-wow64"
+    "wine-staging"
+conflicts=('wine' 'wine-wow64' 'wine-staging' 'wine-esync' 'wine-tkg-staging-git')
 options=(staticlibs !lto !debug)
 depends=('wayland' 'libxkbcommon' 'mesa' 'ffmpeg' 'sdl2' 'libxi' 'libxrandr')
 makedepends=('git' 'mingw-w64-gcc' 'python' 'cups' 'sane' 'pipewire-pulse' 'v4l-utils' 'libxcomposite' 'libxinerama')
