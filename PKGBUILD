@@ -23,8 +23,12 @@ build() {
 
   cd "$srcdir/wine"
 
-  echo "Running configure..."
-  ./configure --prefix=/usr --libdir=/usr/lib --with-wayland --enable-archs=x86_64,i386
+  msg2 "Running configure..."
+  ./configure \
+  --prefix=/usr \
+  --libdir=/usr/lib \
+  --with-wayland \
+  --enable-archs=x86_64,i386
 }
 
 package() {
