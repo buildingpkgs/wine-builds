@@ -8,7 +8,7 @@ license=('LGPL')
 provides=(
     "wine"
     "wine-wow64"
-    "wine-staging"
+    # "wine-staging"
 conflicts=('wine' 'wine-wow64' 'wine-staging' 'wine-esync' 'wine-tkg-staging-git' 'wine-tkg-staging-fsync-git' 'wine-tkg-staging-esync-git')
 replaces=('wine' 'wine-wow64' 'wine-staging' 'wine-esync' 'wine-tkg-staging-git' 'wine-tkg-staging-fsync-git' 'wine-tkg-staging-esync-git')
 options=(staticlibs !lto !debug)
@@ -20,12 +20,12 @@ sha256sums=('SKIP' 'SKIP')
 
 build() {
 
-  cd "$srcdir/wine"
+  #cd "$srcdir/wine"
 
-  msg2 "Applying staging patches..."
-  cd "$srcdir/wine-staging"
+  #msg2 "Applying staging patches..."
+  #cd "$srcdir/wine-staging"
 
-  ./staging/patchinstall.py --all DESTDIR="$srcdir/wine"
+  #./staging/patchinstall.py --all DESTDIR="$srcdir/wine"
 
   cd "$srcdir/wine"
 
