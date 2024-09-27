@@ -10,6 +10,7 @@ provides=(
     "wine-wow64"
     "wine-staging"
 conflicts=('wine' 'wine-wow64' 'wine-staging' 'wine-esync' 'wine-tkg-staging-git' 'wine-tkg-staging-fsync-git' 'wine-tkg-staging-esync-git')
+replaces=('wine' 'wine-wow64' 'wine-staging' 'wine-esync' 'wine-tkg-staging-git' 'wine-tkg-staging-fsync-git' 'wine-tkg-staging-esync-git')
 options=(staticlibs !lto !debug)
 depends=('wayland' 'libxkbcommon' 'mesa' 'ffmpeg' 'sdl2' 'libxi' 'libxrandr')
 makedepends=('git' 'mingw-w64-gcc' 'python' 'cups' 'sane' 'v4l-utils' 'libxcomposite' 'libxinerama')
