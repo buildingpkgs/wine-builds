@@ -26,7 +26,8 @@ build() {
   #cd "$srcdir/wine-staging"
 
   #./staging/patchinstall.py --all DESTDIR="$srcdir/wine"
-
+  
+  export CFLAGS="$CFLAGS -ffat-lto-objects"
   cd "$srcdir/wine"
 
   msg2 "Running configure..."
