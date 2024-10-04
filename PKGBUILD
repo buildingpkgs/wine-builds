@@ -25,9 +25,19 @@ build() {
   msg2 "Applying staging patches..."
   cd "$srcdir/wine-staging"
 
-  ./staging/patchinstall.py --all DESTDIR="$srcdir/wine"
+  ./staging/patchinstall.py --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
+  
   
   export CFLAGS="$CFLAGS -ffat-lto-objects"
+  cd ..
+  cd ..
+  patch -Np1 -d $srcdir/wine < a608ef1.patch
+  patch -Np1 -d $srcdir/wine < fsync-unix-staging.patch
+  patch -Np1 -d $srcdir/wine < HACK-user32-Always-call-get_message-request-after-waiting.patch
+  patch -Np1 -d $srcdir/wine < nostale_mouse_fix.patch
+  patch -Np1 -d $srcdir/wine < opencl-fixup.patch
+  patch -Np1 -d $srcdir/wine < Return_nt_filename_and_resolve_DOS_drive_path.patch
+  patch -Np1 -d $srcdir/wine < fsync_futex_waitv.patch
   cd "$srcdir/wine"
 
   msg2 "Running configure..."
