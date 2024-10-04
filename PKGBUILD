@@ -17,21 +17,9 @@ depends=('wayland' 'libxkbcommon' 'mesa' 'ffmpeg' 'sdl2' 'libxi' 'libxrandr')
 makedepends=('git' 'mingw-w64-gcc' 'python' 'cups' 'sane' 'v4l-utils' 'libxcomposite' 'libxinerama')
 source=("git+https://github.com/wine-mirror/wine.git"
         "git+https://github.com/wine-staging/wine-staging.git"
-        "a608ef1.patch"
-        "fsync_futex_waitv.patch"
-        "fsync-unix-staging.patch"
-        "HACK-user32-Always-call-get_message-request-after-waiting.patch"
-        "nostale_mouse_fix.patch"
-        "opencl-fixup.patch"
-        "Return_nt_filename_and_resolve_DOS_drive_path.patch")
-sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP')
+sha256sums=('SKIP' 'SKIP')
 
 build() {
-  #patch -Np1 -d $srcdir/wine < Return_nt_filename_and_resolve_DOS_drive_path.patch
-  #patch -Np1 -d $srcdir/wine < a608ef1.patch
-  #patch -Np1 -d $srcdir/wine < opencl-fixup.patch
-  #patch -Np1 -d $srcdir/wine < nostale_mouse_fix.patch
-  #patch -Np1 -d $srcdir/wine < HACK-user32-Always-call-get_message-request-after-waiting.patch
   cd "$srcdir/wine"
   git checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
   msg2 "Applying staging patches..."
@@ -39,12 +27,7 @@ build() {
 
   ./staging/patchinstall.py --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
   
-  
   export CFLAGS="$CFLAGS -ffat-lto-objects"
-  #cd ..
-  #cd ..
-  #patch -Np1 -d $srcdir/wine < fsync-unix-staging.patch
-  #patch -Np1 -d $srcdir/wine < fsync_futex_waitv.patch
   cd "$srcdir/wine"
 
   msg2 "Running configure..."
