@@ -17,9 +17,11 @@ depends=('wayland' 'libxkbcommon' 'mesa' 'ffmpeg' 'sdl2' 'libxi' 'libxrandr')
 makedepends=('git' 'mingw-w64-gcc' 'python' 'cups' 'sane' 'v4l-utils' 'libxcomposite' 'libxinerama')
 source=("git+https://github.com/wine-mirror/wine.git"
         "git+https://github.com/wine-staging/wine-staging.git"
-sha256sums=('SKIP' 'SKIP')
+        "ffmpeg.patch"
+sha256sums=('SKIP' 'SKIP' 'SKIP')
 
 build() {
+  patch -Np1 -d $srcdir/wine < ffmpeg.patch
   cd "$srcdir/wine"
   git checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
   msg2 "Applying staging patches..."
