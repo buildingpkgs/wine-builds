@@ -21,9 +21,11 @@ source=("git+https://github.com/wine-mirror/wine.git"
 sha256sums=('SKIP' 'SKIP' 'SKIP')
 
 build() {
-  patch -Np1 -d $srcdir/wine < ffmpeg.patch
   cd "$srcdir/wine"
   git checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
+  cd ..
+  cd ..
+  patch -Np1 -d $srcdir/wine < ffmpeg.patch
   msg2 "Applying staging patches..."
   cd "$srcdir/wine-staging"
 
