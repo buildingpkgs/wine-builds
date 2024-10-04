@@ -41,10 +41,10 @@ build() {
   
   
   export CFLAGS="$CFLAGS -ffat-lto-objects"
-  cd ..
-  cd ..
-  patch -Np1 -d $srcdir/wine < fsync-unix-staging.patch
-  patch -Np1 -d $srcdir/wine < fsync_futex_waitv.patch
+  #cd ..
+  #cd ..
+  #patch -Np1 -d $srcdir/wine < fsync-unix-staging.patch
+  #patch -Np1 -d $srcdir/wine < fsync_futex_waitv.patch
   cd "$srcdir/wine"
 
   msg2 "Running configure..."
