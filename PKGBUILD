@@ -17,7 +17,7 @@ depends=('wayland' 'libxkbcommon' 'mesa' 'ffmpeg' 'sdl2' 'libxi' 'libxrandr')
 makedepends=('git' 'mingw-w64-gcc' 'python' 'cups' 'sane' 'v4l-utils' 'libxcomposite' 'libxinerama')
 source=("git+https://github.com/wine-mirror/wine.git"
         "git+https://github.com/wine-staging/wine-staging.git"
-        "ffmpeg.patch"
+        "ffmpeg.patch")
 sha256sums=('SKIP' 'SKIP' 'SKIP')
 
 build() {
