@@ -1,0 +1,12 @@
+--- loader/wine.inf
++++ loader/wine.inf
+@@ -2615,6 +2615,9 @@ HKLM,Software\Wine\LicenseInformation,"Shell-InBoxGames-Solitaire-EnableGame",0x
+ HKLM,Software\Wine\LicenseInformation,"Shell-InBoxGames-SpiderSolitaire-EnableGame",0x10001,0x00000001
+ HKLM,Software\Wine\LicenseInformation,"Shell-PremiumInBoxGames-Chess-EnableGame",0x10001,0x00000001
+ 
++[ffmpeg]
++HKCU,Software\Wine\MediaFoundation,"DisableGstByteStreamHandler",0x10003,1
++
+ [ColorFiles]
+ srgb color space profile.icm,"@%11%\mscms.dll,-1"
+ 
