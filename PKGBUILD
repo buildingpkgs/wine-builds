@@ -15,8 +15,15 @@ options=(staticlibs !lto !debug)
 depends=('wayland' 'libxkbcommon' 'mesa' 'ffmpeg' 'sdl2' 'libxi' 'libxrandr')
 makedepends=('git' 'mingw-w64-gcc' 'python' 'cups' 'sane' 'v4l-utils' 'libxcomposite' 'libxinerama')
 source=("git+https://github.com/wine-mirror/wine.git"
-        "git+https://github.com/wine-staging/wine-staging.git")
-sha256sums=('SKIP' 'SKIP')
+        "git+https://github.com/wine-staging/wine-staging.git"
+        "a608ef1.patch"
+        "fsync_futex_waitv.patch"
+        "fsync-unix-staging.patch"
+        "HACK-user32-Always-call-get_message-request-after-waiting.patch"
+        "nostale_mouse_fix.patch"
+        "opencl-fixup.patch"
+        "Return_nt_filename_and_resolve_DOS_drive_path.patch")
+sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP')
 
 build() {
 
