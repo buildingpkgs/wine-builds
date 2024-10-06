@@ -22,14 +22,14 @@ sha256sums=('SKIP' 'SKIP' 'SKIP')
 
 build() {
   cd "$srcdir/wine"
-  #git checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
+  git checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
   cd ..
   cd ..
   patch -Np1 -d $srcdir/wine < ffmpeg.patch
   msg2 "Applying staging patches..."
   cd "$srcdir/wine-staging"
-  git checkout 3695e096530ed650ce08207f8193af028ec85242
-  ./staging/patchinstall.py --all -W ntdll-Syscall_Emulation -W gdi32-rotation DESTDIR="$srcdir/wine"
+  
+  ./staging/patchinstall.py --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
   
   export CFLAGS="$CFLAGS -ffat-lto-objects"
   cd "$srcdir/wine"
