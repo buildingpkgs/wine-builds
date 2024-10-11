@@ -57,7 +57,7 @@ sha256sums=('SKIP'
 
 build() {
   cd "$srcdir/wine"
-  git checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
+  #git checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
   cd ..
   cd ..
   patch -Np1 -d $srcdir/wine < ffmpeg.patch
