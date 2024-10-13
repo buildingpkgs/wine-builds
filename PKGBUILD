@@ -1,7 +1,7 @@
-pkgname=wine-staging-wow64
+pkgname=wine-staging
 pkgver=9.18
 pkgrel=1
-pkgdesc="WINE with staging patches applied"
+pkgdesc="A compatibility layer for running Windows programs - Staging branch"
 arch=('x86_64')
 url="https://www.winehq.org/"
 license=('LGPL')
@@ -9,6 +9,7 @@ provides=(
     "wine"
     "wine-wow64"
     "wine-staging"
+    "wine-staging-wow64"
     )
 conflicts=('wine' 
            'wine-wow64'
@@ -17,6 +18,7 @@ conflicts=('wine'
            'wine-tkg-staging-git'
            'wine-tkg-staging-fsync-git'
            'wine-tkg-staging-esync-git'
+           "wine-staging-wow64"
            )
 replaces=('wine'
           'wine-wow64'
@@ -25,6 +27,7 @@ replaces=('wine'
           'wine-tkg-staging-git'
           'wine-tkg-staging-fsync-git'
           'wine-tkg-staging-esync-git'
+          "wine-staging-wow64"
           )
 options=(staticlibs !lto !debug)
 depends=('wayland'
@@ -54,6 +57,10 @@ sha256sums=('SKIP'
             'SKIP'
             'SKIP'
             )
+
+pkgver() {
+    git -C $srcdir/wine describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g;s/^wine.//;s/^v//;s/\.rc/rc/'
+}
 
 build() {
   #git -C $srcdir/wine checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
