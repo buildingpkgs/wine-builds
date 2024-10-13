@@ -68,7 +68,7 @@ build() {
   msg2 "Applying staging patches..."
   cd "$srcdir/wine-staging"
   
-  ./staging/patchinstall.py --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
+  #./staging/patchinstall.py --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
   
   export CFLAGS="$CFLAGS -ffat-lto-objects"
   cd "$srcdir/wine"
