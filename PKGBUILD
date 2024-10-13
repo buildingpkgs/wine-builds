@@ -29,7 +29,7 @@ replaces=('wine'
           'wine-tkg-staging-esync-git'
           "wine-staging-wow64"
           )
-options=(staticlibs !lto !debug)
+options=(!lto !debug)
 depends=('wayland'
          'libxkbcommon'
          'mesa'
