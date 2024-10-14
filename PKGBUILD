@@ -65,7 +65,7 @@ pkgver() {
 }
 
 build() {
-  git -C $srcdir/wine checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
+  #git -C $srcdir/wine checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
   msg2 "Applying patches..."
   
   patch -Np1 -d $srcdir/wine < ffmpeg.patch
