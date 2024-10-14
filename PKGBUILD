@@ -65,13 +65,14 @@ pkgver() {
 }
 
 build() {
+  # uncomment if build fails
   #git -C $srcdir/wine checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
   msg2 "Applying patches..."
   
   patch -Np1 -d $srcdir/wine < ffmpeg.patch
   patch -Np1 -d $srcdir/wine < lto.patch
   
-  #$srcdir/wine-staging/staging/patchinstall.py --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
+  $srcdir/wine-staging/staging/patchinstall.py --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
   
   export CFLAGS="$CFLAGS -ffat-lto-objects"
   cd "$srcdir/wine"
