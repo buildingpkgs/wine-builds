@@ -52,8 +52,10 @@ makedepends=('git'
 source=("git+https://github.com/wine-mirror/wine.git"
         "git+https://github.com/wine-staging/wine-staging.git"
         "ffmpeg.patch"
+        "lto.patch"
         )
 sha256sums=('SKIP'
+            'SKIP'
             'SKIP'
             'SKIP'
             )
