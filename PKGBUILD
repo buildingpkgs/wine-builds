@@ -29,7 +29,7 @@ replaces=('wine'
           'wine-tkg-staging-esync-git'
           "wine-staging-wow64"
           )
-options=(!debug !lto)
+options=(!debug)
 depends=('wayland'
          'libxkbcommon'
          'mesa'
@@ -70,7 +70,7 @@ build() {
   msg2 "Applying patches..."
   
   patch -Np1 -d $srcdir/wine < ffmpeg.patch
-  #patch -Np1 -d $srcdir/wine < lto.patch
+  patch -Np1 -d $srcdir/wine < lto.patch
   
   $srcdir/wine-staging/staging/patchinstall.py --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
   
