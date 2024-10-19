@@ -1,5 +1,5 @@
 pkgname=wine-staging
-pkgver=9.18
+pkgver=9.20
 pkgrel=1
 pkgdesc="A compatibility layer for running Windows programs - Staging branch"
 arch=('x86_64')
@@ -29,7 +29,7 @@ replaces=('wine'
           'wine-tkg-staging-esync-git'
           "wine-staging-wow64"
           )
-options=(!debug)
+options=(!debug !lto)
 depends=('wayland'
          'libxkbcommon'
          'mesa'
@@ -70,7 +70,7 @@ build() {
   msg2 "Applying patches..."
   
   patch -Np1 -d $srcdir/wine < ffmpeg.patch
-  patch -Np1 -d $srcdir/wine < lto.patch
+  #patch -Np1 -d $srcdir/wine < lto.patch
   
   $srcdir/wine-staging/staging/patchinstall.py --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
   
