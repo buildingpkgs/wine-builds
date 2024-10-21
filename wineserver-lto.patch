@@ -1,0 +1,22 @@
+From 45b5c08402e5dbe0ecd272340f6aff2fbfa6066f Mon Sep 17 00:00:00 2001
+From: Torge Matthies <openglfreak@googlemail.com>
+Date: Tue, 7 Dec 2021 21:51:07 +0100
+Subject: [PATCH] server: Enable link-time optimization.
+
+---
+ server/Makefile.in | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/server/Makefile.in b/server/Makefile.in
+index a98615cce72..c53a264e999 100644
+--- a/server/Makefile.in
++++ b/server/Makefile.in
+@@ -49,6 +49,7 @@ SOURCES = \
+ 	wineserver.man.in \
+ 	winstation.c
+ 
+-UNIX_LIBS = $(LDEXECFLAGS) $(RT_LIBS) $(INOTIFY_LIBS) $(PROCSTAT_LIBS)
++UNIX_LIBS = $(LDEXECFLAGS) $(RT_LIBS) $(INOTIFY_LIBS) $(PROCSTAT_LIBS) -flto=auto -flto-partition=one -fdevirtualize-at-ltrans $(CFLAGS)
++EXTRADEFS = -flto=auto -flto-partition=one -fdevirtualize-at-ltrans
+ 
+ unicode_EXTRADEFS = -DNLSDIR="\"${nlsdir}\"" -DBIN_TO_NLSDIR=\"`${MAKEDEP} -R ${bindir} ${nlsdir}`\"
