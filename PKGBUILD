@@ -57,8 +57,10 @@ source=("git+https://github.com/wine-mirror/wine.git"
         "win32k.patch"
         "dxgkrnl.patch"
         "dxgmms1.patch"
+        "winedevice-driver.patch"
         )
 sha256sums=('SKIP'
+            'SKIP'
             'SKIP'
             'SKIP'
             'SKIP'
@@ -83,6 +85,7 @@ build() {
   patch -Np1 -d $srcdir/wine < win32k.patch
   patch -Np1 -d $srcdir/wine < dxgkrnl.patch
   patch -Np1 -d $srcdir/wine < dxgmms1.patch
+  patch -Np1 -d $srcdir/wine < winedevice-driver.patch
   
   $srcdir/wine-staging/staging/patchinstall.py --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
   
