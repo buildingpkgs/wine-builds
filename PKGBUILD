@@ -4,7 +4,7 @@ pkgrel=1
 pkgdesc="A compatibility layer for running Windows programs - Staging branch"
 arch=('x86_64')
 url="https://www.winehq.org/"
-license=('LGPL')
+license=('LGPL-2.1-or-later')
 provides=(
     "wine"
     "wine-wow64"
@@ -67,7 +67,7 @@ pkgver() {
 build() {
   # uncomment if build fails
   #git -C $srcdir/wine checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
-  msg2 "Applying patches..."
+  echo "Applying patches..."
   
   patch -Np1 -d $srcdir/wine < ffmpeg.patch
   patch -Np1 -d $srcdir/wine < lto.patch
@@ -77,7 +77,7 @@ build() {
   export CFLAGS="$CFLAGS -ffat-lto-objects"
   cd "$srcdir/wine"
 
-  msg2 "Running configure..."
+  echo "Running configure..."
   ./configure \
   --prefix=/usr \
   --libdir=/usr/lib \
