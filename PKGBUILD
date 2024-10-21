@@ -53,8 +53,10 @@ source=("git+https://github.com/wine-mirror/wine.git"
         "git+https://github.com/wine-staging/wine-staging.git"
         "ffmpeg.patch"
         "lto.patch"
+        "wineserver-lto.patch"
         )
 sha256sums=('SKIP'
+            'SKIP'
             'SKIP'
             'SKIP'
             'SKIP'
@@ -71,6 +73,7 @@ build() {
   
   patch -Np1 -d $srcdir/wine < ffmpeg.patch
   patch -Np1 -d $srcdir/wine < lto.patch
+  patch -Np1 -d $srcdir/wine < wineserver-lto.patch
   
   $srcdir/wine-staging/staging/patchinstall.py --all -W ntdll-Syscall_Emulation -W winecfg-Staging DESTDIR="$srcdir/wine"
   
