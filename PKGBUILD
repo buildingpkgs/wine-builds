@@ -54,8 +54,14 @@ source=("git+https://github.com/wine-mirror/wine.git"
         "ffmpeg.patch"
         "lto.patch"
         "wineserver-lto.patch"
+        "win32k.patch"
+        "dxgkrnl.patch"
+        "dxgmms1.patch"
         )
 sha256sums=('SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
             'SKIP'
             'SKIP'
             'SKIP'
@@ -74,6 +80,9 @@ build() {
   patch -Np1 -d $srcdir/wine < ffmpeg.patch
   patch -Np1 -d $srcdir/wine < lto.patch
   patch -Np1 -d $srcdir/wine < wineserver-lto.patch
+  patch -Np1 -d $srcdir/wine < win32k.patch
+  patch -Np1 -d $srcdir/wine < dxgkrnl.patch
+  patch -Np1 -d $srcdir/wine < dxgmms1.patch
   
   $srcdir/wine-staging/staging/patchinstall.py --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
   
