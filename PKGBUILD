@@ -72,7 +72,7 @@ build() {
   patch -Np1 -d $srcdir/wine < ffmpeg.patch
   patch -Np1 -d $srcdir/wine < lto.patch
   
-  $srcdir/wine-staging/staging/patchinstall.py --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
+  $srcdir/wine-staging/staging/patchinstall.py --all -W ntdll-Syscall_Emulation -W winecfg-Staging DESTDIR="$srcdir/wine"
   
   export CFLAGS="$CFLAGS -ffat-lto-objects"
   cd "$srcdir/wine"
