@@ -87,7 +87,6 @@ build() {
   ./configure \
   --prefix=/usr \
   --libdir=/usr/lib \
-  --with-wayland \
   --enable-archs=x86_64,i386 \
   --without-opencl \
   --without-capi \
