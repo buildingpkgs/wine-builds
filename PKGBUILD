@@ -73,7 +73,7 @@ build() {
   #git -C $srcdir/wine checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
   echo "Applying patches..."
   
-  patch -Np1 -d $srcdir/wine < ffmpeg.patch
+  #patch -Np1 -d $srcdir/wine < ffmpeg.patch
   patch -Np1 -d $srcdir/wine < lto.patch
   patch -Np1 -d $srcdir/wine < wineserver-lto.patch
   patch -Np1 -d $srcdir/wine < unity-crash.patch
