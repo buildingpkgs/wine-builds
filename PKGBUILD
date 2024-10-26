@@ -37,7 +37,14 @@ depends=('wayland'
          'sdl2'
          'libxi'
          'libxrandr'
+         'gst-plugins-base'
          )
+optdepends=('gst-plugins-good'
+            'gst-plugins-ugly'
+            'gst-plugins-bad'
+            'pcsclite'
+            'opencl-icd-loader'
+            )
 makedepends=('git'
              'mingw-w64-gcc'
              'python'
@@ -48,6 +55,8 @@ makedepends=('git'
              'libxinerama'
              'gst-plugins-base-libs'
              'samba'
+             'pcsclite'
+             'opencl-headers'
              )
 source=("git+https://github.com/wine-mirror/wine.git"
         "git+https://github.com/wine-staging/wine-staging.git"
@@ -74,10 +83,8 @@ build() {
   --prefix=/usr \
   --libdir=/usr/lib \
   --enable-archs=x86_64,i386 \
-  --without-opencl \
   --without-capi \
   --without-oss \
-  --without-pcsclite
 }
 
 package() {
