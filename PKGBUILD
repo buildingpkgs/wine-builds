@@ -51,16 +51,8 @@ makedepends=('git'
              )
 source=("git+https://github.com/wine-mirror/wine.git"
         "git+https://github.com/wine-staging/wine-staging.git"
-        "ffmpeg.patch"
-        "lto.patch"
-        "wineserver-lto.patch"
-        "unity-crash.patch"
         )
 sha256sums=('SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
             'SKIP'
             )
 
@@ -73,14 +65,8 @@ build() {
   #git -C $srcdir/wine checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
   echo "Applying patches..."
   
-  #patch -Np1 -d $srcdir/wine < ffmpeg.patch
-  patch -Np1 -d $srcdir/wine < lto.patch
-  patch -Np1 -d $srcdir/wine < wineserver-lto.patch
-  patch -Np1 -d $srcdir/wine < unity-crash.patch
-  
   $srcdir/wine-staging/staging/patchinstall.py --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
   
-  export CFLAGS="$CFLAGS -ffat-lto-objects"
   cd "$srcdir/wine"
 
   echo "Running configure..."
