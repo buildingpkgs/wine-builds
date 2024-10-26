@@ -45,7 +45,8 @@ optdepends=('gst-plugins-good'
             'pcsclite'
             'opencl-icd-loader'
             )
-makedepends=('git'
+makedepends=(
+             'git'
              'mingw-w64-gcc'
              'python'
              'cups'
@@ -84,7 +85,7 @@ build() {
   --libdir=/usr/lib \
   --enable-archs=x86_64,i386 \
   --without-capi \
-  --without-oss \
+  --without-oss
 }
 
 package() {
