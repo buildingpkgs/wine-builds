@@ -1,4 +1,4 @@
-pkgname=wine-staging
+pkgname=wine-staging-git
 pkgver=9.20
 pkgrel=1
 pkgdesc="A compatibility layer for running Windows programs - Staging branch"
