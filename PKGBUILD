@@ -97,6 +97,7 @@ build() {
   --libdir=/usr/lib \
   --enable-archs=x86_64,i386 \
   --with-wayland \
+  --without-x \
   --without-capi \
   --without-oss
 }
