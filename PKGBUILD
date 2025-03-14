@@ -1,5 +1,4 @@
 pkgname=wine-staging-git
-pkgver=9.21
 pkgrel=1
 pkgdesc="A compatibility layer for running Windows programs - Staging branch"
 arch=('x86_64')
