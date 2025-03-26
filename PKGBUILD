@@ -1,5 +1,5 @@
 pkgname=wine-staging-git
-pkgver=10.3
+pkgver=10.4
 pkgrel=1
 pkgdesc="A compatibility layer for running Windows programs - Staging branch"
 arch=('x86_64')
@@ -87,7 +87,7 @@ build() {
   #git -C $srcdir/wine checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
   echo "Applying patches..."
   
-  "$srcdir/wine-staging/staging/patchinstall.py" --all -W ntdll-Syscall_Emulation DESTDIR="$srcdir/wine"
+  "$srcdir/wine-staging/staging/patchinstall.py" --all DESTDIR="$srcdir/wine"
   
   cd "$srcdir/wine"
 
