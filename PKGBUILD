@@ -99,7 +99,8 @@ build() {
   --with-wayland \
   --without-capi \
   --without-x \
-  --without-oss
+  --without-oss \
+  --without-x
 }
 
 package() {
