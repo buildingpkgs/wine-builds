@@ -98,9 +98,7 @@ build() {
   --enable-archs=x86_64,i386 \
   --with-wayland \
   --without-capi \
-  --without-x \
-  --without-oss \
-  --without-x
+  --without-oss
 }
 
 package() {
