@@ -1,5 +1,5 @@
 pkgname=wine-staging-git
-pkgver=10.4
+pkgver=10.8
 pkgrel=1
 pkgdesc="A compatibility layer for running Windows programs - Staging branch"
 arch=('x86_64')
@@ -7,9 +7,6 @@ url="https://www.winehq.org/"
 license=('LGPL-2.1-or-later')
 provides=(
     wine
-    wine-wow64
-    wine-staging
-    wine-staging-wow64
 )
 conflicts=(
     wine
