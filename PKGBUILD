@@ -36,7 +36,7 @@ options=(
 depends=(
     #wayland
     libxkbcommon
-    mesa
+    #mesa
     ffmpeg
     sdl2
     libxi
