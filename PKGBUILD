@@ -41,7 +41,7 @@ depends=(
     sdl2
     libxi
     libxrandr
-    gst-plugins-base
+    #gst-plugins-base
     libpcap
     perl
 )
