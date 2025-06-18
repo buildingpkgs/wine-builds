@@ -35,12 +35,12 @@ options=(
 )
 depends=(
     #wayland
-    libxkbcommon
+    #libxkbcommon
     #mesa
-    ffmpeg
-    sdl2
+    #ffmpeg
+    #sdl2
     libxi
-    libxrandr
+    #libxrandr
     #gst-plugins-base
     libpcap
     perl
@@ -94,7 +94,7 @@ build() {
   --libdir=/usr/lib \
   --enable-archs=x86_64,i386 \
   --without-capi \
-  --without-oss
+  --without-oss \
   --with-wayland
 }
 
