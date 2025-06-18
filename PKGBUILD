@@ -1,5 +1,5 @@
 pkgname=wine-staging-git
-pkgver=10.8
+pkgver=10.10
 pkgrel=1
 pkgdesc="A compatibility layer for running Windows programs - Staging branch"
 arch=('x86_64')
@@ -34,14 +34,14 @@ options=(
     !lto
 )
 depends=(
-    #wayland
-    #libxkbcommon
-    #mesa
-    #ffmpeg
-    #sdl2
+    wayland
+    libxkbcommon
+    mesa
+    ffmpeg
+    sdl2
     libxi
-    #libxrandr
-    #gst-plugins-base
+    libxrandr
+    gst-plugins-base
     libpcap
     perl
 )
@@ -61,7 +61,7 @@ makedepends=(
     v4l-utils
     libxcomposite
     libxinerama
-    #gst-plugins-base-libs
+    gst-plugins-base-libs
     samba
     pcsclite
     opencl-headers
@@ -82,7 +82,6 @@ pkgver() {
 build() {
   # uncomment if build fails
   #git -C $srcdir/wine checkout $(cat $srcdir/wine-staging/staging/upstream-commit)
-  echo "Applying patches..."
   
   "$srcdir/wine-staging/staging/patchinstall.py" --all DESTDIR="$srcdir/wine"
   
@@ -92,10 +91,7 @@ build() {
   ./configure \
   --prefix=/usr \
   --libdir=/usr/lib \
-  --enable-archs=x86_64,i386 \
-  --without-capi \
-  --without-oss \
-  --with-wayland
+  --enable-archs=x86_64,i386
 }
 
 package() {
