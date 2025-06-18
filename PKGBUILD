@@ -61,7 +61,7 @@ makedepends=(
     v4l-utils
     libxcomposite
     libxinerama
-    gst-plugins-base-libs
+    #gst-plugins-base-libs
     samba
     pcsclite
     opencl-headers
@@ -95,6 +95,7 @@ build() {
   --enable-archs=x86_64,i386 \
   --without-capi \
   --without-oss
+  --with-wayland
 }
 
 package() {
