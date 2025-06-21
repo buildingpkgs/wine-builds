@@ -18,16 +18,6 @@ conflicts=(
     wine-tkg-staging-esync-git
     wine-staging-wow64
 )
-replaces=(
-    wine
-    wine-wow64
-    wine-staging
-    wine-esync
-    wine-tkg-staging-git
-    wine-tkg-staging-fsync-git
-    wine-tkg-staging-esync-git
-    wine-staging-wow64
-)
 options=(
     !debug 
     !lto
