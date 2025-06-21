@@ -29,7 +29,6 @@ replaces=(
     wine-staging-wow64
 )
 options=(
-    !staticlibs 
     !debug 
     !lto
 )
