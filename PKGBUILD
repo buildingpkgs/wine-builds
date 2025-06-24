@@ -19,6 +19,7 @@ conflicts=(
     wine-staging-wow64
 )
 options=(
+    !staticlibs
     !debug 
     !lto
 )
@@ -76,7 +77,6 @@ build() {
   
   cd "$srcdir/wine"
 
-  echo "Running configure..."
   ./configure \
   --prefix=/usr \
   --libdir=/usr/lib \
