@@ -27,7 +27,7 @@ depends=(
     libxkbcommon
     mesa
     ffmpeg
-    sdl3
+    sdl2-compat
     libxi
     libxrandr
     gst-plugins-base
