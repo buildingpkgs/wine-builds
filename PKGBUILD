@@ -1,5 +1,5 @@
 pkgname=wine-staging-git
-pkgver=10.10
+pkgver=10.12
 pkgrel=1
 pkgdesc="A compatibility layer for running Windows programs - Staging branch"
 arch=('x86_64')
@@ -10,13 +10,10 @@ provides=(
 )
 conflicts=(
     wine
-    wine-wow64
     wine-staging
-    wine-esync
     wine-tkg-staging-git
     wine-tkg-staging-fsync-git
     wine-tkg-staging-esync-git
-    wine-staging-wow64
 )
 options=(
     !debug 
